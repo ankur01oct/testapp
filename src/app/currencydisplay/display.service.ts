@@ -6,14 +6,27 @@ import { Observable } from "rxjs";
 
 @Injectable()
 export class DisplayService {
-    private currency: Currency[];
+    private currencies: Currency[];
     constructor(private http: Http) {};
 
 
     getMessages() {
-        return this.http.get('https://api.coinmarketcap.com/v2/ticker/?convert=INR&limit=20')
+        return this.http.get('https://api.coinmarketcap.com/v2/ticker/?convert=INR&start=1&limit=20&sort=rank&structure=array')
             .map((response: Response) => {
-               console.log(response.json().data);
+               const currencies=(response.json().data);
+               console.log(currencies);
+               let transformedcurrencies : Currency[]=[];
+               for(let currency of currencies){
+                   transformedcurrencies.push(new Currency(currency.rank,
+                    currency.name,
+                    currency.quotes.INR.market_cap,
+                    currency.quotes.INR.price,
+                    currency.quotes.INR.volume_24h,
+                    currency.circulating_supply
+                ))
+               }
+               this.currencies=(transformedcurrencies);
+               return transformedcurrencies;
             })
             .catch((error: Response) => Observable.throw(error.json()));
     }

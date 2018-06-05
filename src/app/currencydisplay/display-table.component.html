@@ -2,6 +2,7 @@
     <table class="table">
             <thead>
               <tr>
+                <th>Rank</th>
                 <th>Name</th>
                 <th>Market Cap</th>
                 <th>Price</th>
@@ -12,6 +13,7 @@
             </thead>
             <tbody>
               <tr *ngFor="let currency of currencies">
+                <td>{{currency.rank}}</td>
                 <td>{{currency?.name}}</td>
                 <td>{{currency?.market_cap}}</td>
                 <td>{{currency?.price}}</td>

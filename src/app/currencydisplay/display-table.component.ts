@@ -10,6 +10,11 @@ export class DisplayTable implements OnInit{
     currencies:Currency[]=[];
     constructor(private displayservice:DisplayService){};
     ngOnInit(){
-        this.displayservice.getMessages().subscribe();
+        this.displayservice.getMessages().subscribe(
+            ( currencies:Currency[]) => {
+                this.currencies=currencies;
+                console.log(this.currencies);
+            }
+        );
     }
 }

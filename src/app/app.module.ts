@@ -1,3 +1,4 @@
+import { CurrencyDetails } from './currencydetails/currency-details.component';
 import { DisplayTable } from './currencydisplay/display-table.component';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
@@ -5,16 +6,20 @@ import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
 import { HttpModule } from '@angular/http';
-
+import { RouterModule } from "@angular/router";
+import { routing } from './app.routing';
 
 @NgModule({
   declarations: [
     AppComponent,
-    DisplayTable
+    DisplayTable,
+    CurrencyDetails
   ],
   imports: [
     BrowserModule,
-    HttpModule
+    HttpModule,
+    routing,
+    RouterModule
   ],
   providers: [],
   bootstrap: [AppComponent]

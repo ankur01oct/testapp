@@ -17,7 +17,8 @@ export class DisplayService {
                console.log(currencies);
                let transformedcurrencies : Currency[]=[];
                for(let currency of currencies){
-                   transformedcurrencies.push(new Currency(currency.rank,
+                   transformedcurrencies.push(new Currency(currency.id,
+                    currency.rank,
                     currency.name,
                     currency.quotes.INR.market_cap,
                     currency.quotes.INR.price,

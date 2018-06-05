@@ -1,5 +1,5 @@
 <div class="container ">
-    <table class="table">
+      <table class="table">
             <thead>
               <tr>
                 <th>Rank</th>
@@ -13,8 +13,8 @@
             </thead>
             <tbody>
               <tr *ngFor="let currency of currencies">
-                <td>{{currency.rank}}</td>
-                <td>{{currency?.name}}</td>
+                <td>{{currency?.rank}}</td>
+                <a class="link-secondary night-mode-bold" [routerLink]="currency?.id"><td>{{currency?.name}}</td></a>
                 <td>{{currency?.market_cap}}</td>
                 <td>{{currency?.price}}</td>
                 <td>{{currency?.volume}}</td>
@@ -23,4 +23,5 @@
               </tr>
             </tbody>
           </table>
+          
 </div>

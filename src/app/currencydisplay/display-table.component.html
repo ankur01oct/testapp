@@ -1,0 +1,24 @@
+<div class="container ">
+    <table class="table">
+            <thead>
+              <tr>
+                <th>Name</th>
+                <th>Market Cap</th>
+                <th>Price</th>
+                <th>Volume (24h)</th>
+                <th>Cirulating Supply</th>
+                <th>Notes</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let currency of currencies">
+                <td>{{currency?.name}}</td>
+                <td>{{currency?.market_cap}}</td>
+                <td>{{currency?.price}}</td>
+                <td>{{currency?.volume}}</td>
+                <td>{{currency?.circulating_supply}}</td>
+               
+              </tr>
+            </tbody>
+          </table>
+</div>

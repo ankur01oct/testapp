@@ -14,7 +14,7 @@
             <tbody>
               <tr *ngFor="let currency of currencies">
                 <td>{{currency?.rank}}</td>
-                <a class="link-secondary night-mode-bold" [routerLink]="currency?.id"><td>{{currency?.name}}</td></a>
+                <a class="link-secondary night-mode-bold" [routerLink]="currency?.name"><td>{{currency?.name}}</td></a>
                 <td>{{currency?.market_cap}}</td>
                 <td>{{currency?.price}}</td>
                 <td>{{currency?.volume}}</td>

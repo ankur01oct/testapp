@@ -1,0 +1,17 @@
+<div  class="col-md-8 col-md-offset-2 justify-content-center">
+        <h2>More Information about {{name}}</h2>
+        <div>
+             
+                <ul *ngIf="data[0]">
+                    <li><h4>Name : {{data[0]?.name}}</h4></li><h4></h4>
+                    <li><h4>ID : {{data[0]?.id}}</h4></li>
+                    <li><h4>RANK : {{data[0]?.rank}}</h4></li>
+                    <li><h4>Market_Cap : {{data[0]?.quotes.USD.market_cap}}</h4></li>
+                    <li><h4>Symbol : {{data[0]?.symbol}}</h4></li>
+                    <li><h4>Percent_Change_1h : {{data[0]?.quotes.USD.percent_change_1h}}</h4></li>
+                </ul>
+                
+                <button  class="btn btn-primary" (click)="goBack()">Back</button>
+        </div>
+        
+    </div>

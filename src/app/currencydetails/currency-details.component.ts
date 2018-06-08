@@ -14,15 +14,20 @@ export class CurrencyDetails implements OnInit {
          private displayservice:DisplayService){};
     
     name:string;
-    data:any[]=[]
+    data:any[]=[];
+    currencyType = this.displayservice.getUserSettings()?this.displayservice.getUserSettings():'INR';
+    marketcap:any;
+    Percent_Change_1h:any;
     ngOnInit():void {
         this.route.params.forEach((params: Params) => {
             this.name=params['name'];
             //console.log(params['name']);
             this.displayservice.getIndividualCurrency(this.name).subscribe(
-                (response:any[]) => {
+                (response:any) => {
                     this.data=response;
-                    console.log(this.data[0].last_updated);
+                    this.marketcap=response.quotes[this.currencyType].market_cap;
+                    this.Percent_Change_1h=response.quotes[this.currencyType].percent_change_1h;
+                    console.log(this.data);
                 }
             )
         });

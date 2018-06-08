@@ -1,3 +1,18 @@
+<div class="container">
+  <div class ="row col-md-2">
+   
+    <select class="form-control" (change)="onSelect($event.target.value)" >
+        <option *ngIf='currencyType==""'selected="INR">INR</option>
+        <option *ngIf='currencyType=="INR"'selected="INR">INR</option>
+        <option  *ngIf='currencyType!="INR"' value="INR">INR</option>
+        <option *ngIf='currencyType=="EUR"'selected="EUR">EUR</option>
+        <option  *ngIf='currencyType!="EUR"' value="EUR">EUR</option>
+        <option *ngIf='currencyType=="USD"'selected="USD">USD</option>
+        <option  *ngIf='currencyType!="USD"' value="USD">USD</option>
+      </select>
+
+    </div>
+</div>
 <div class="container ">
       <table class="table">
             <thead>
@@ -15,9 +30,9 @@
               <tr *ngFor="let currency of currencies">
                 <td>{{currency?.rank}}</td>
                 <a class="link-secondary night-mode-bold" [routerLink]="currency?.name"><td>{{currency?.name}}</td></a>
-                <td>{{currency?.market_cap}}</td>
-                <td>{{currency?.price}}</td>
-                <td>{{currency?.volume}}</td>
+                <td>{{currency?.market_cap}} {{currencyType}}</td>
+                <td>{{currency?.price}} {{currencyType}}</td>
+                <td>{{currency?.volume}} {{currencyType}}</td>
                 <td>{{currency?.circulating_supply}}</td>
                
               </tr>
